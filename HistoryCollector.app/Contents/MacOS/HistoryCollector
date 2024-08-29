@@ -1,0 +1,14 @@
+#!/bin/bash
+
+Down_Dir = "$Home/Downloads"
+
+cd "$Down_Dir"
+
+if [! -d "History-Collector"];
+then 
+wget https://github.com/Blue-EMA/History-Collector.git
+unzip History-Collector.git
+fi
+
+cd History-Collector
+node ghistory.js
