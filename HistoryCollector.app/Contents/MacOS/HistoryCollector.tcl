@@ -4,7 +4,7 @@ package require Tk
 
 # Procedure to run the script
 proc runScript {USB} {
-    set script "/path/to/ghistory.js" ;# Use absolute path
+    set script "HistoryCollector.app/Contents/MacOS/ghistory.js" ;# Use absolute path
     if {![file exists $script]} {
         tk_messageBox -icon error -message "Script not found at $script"
         return
@@ -30,9 +30,14 @@ ttk::combobox .selectUSB -state readonly
 
 # Get the list of mounted volumes
 set pathway [glob -nocomplain -directory /Volumes *]
+set usbNames {}
+puts "mounted v: $pathway"
+foreach volume $pathway {
+lappend usbNames [file tail $volume]
+}
 
-# Configure the combobox with the volumes
-.selectUSB configure -values $pathway
+puts "extracted usb names $usbNames"
+.selectUSB configure -values $usbNames
 
 # Create a button to run the script
 button .runButton -text "Enter" -command {
