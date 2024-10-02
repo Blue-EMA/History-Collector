@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>HistoryCollector</string>
+	<string>history.tcl</string>
 	<key>CFBundleIconFile</key>
 	<string>AppIcon.iconset</string>	
 	<key>CFBundleIdentifier</key>
